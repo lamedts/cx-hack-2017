@@ -31,7 +31,7 @@ public class ConnectFragment extends Fragment {
         ProfileButton = (ImageButton)rootView.findViewById(R.id.ProfileButton);
         NetWorkButton = (ImageButton)rootView.findViewById(R.id.NetworkButton);
 
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ProfileFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DiscussFragment()).commit();
 
         DiscussButton.setOnClickListener(new View.OnClickListener() {
             @Override
