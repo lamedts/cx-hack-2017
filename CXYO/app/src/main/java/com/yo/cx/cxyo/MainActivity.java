@@ -9,13 +9,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
     private ConnectFragment Connectfragment = new ConnectFragment();
     private FlightInfoFragment FlightInfofragment = new FlightInfoFragment();
-    private RequestFragment Requestfragment = new RequestFragment();
+    private FlightAttendanceFragment FlightAttendancefragment = new FlightAttendanceFragment();
 
     private BottomNavigationView navigation;
     private ViewPager viewPager;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                     case 1:
                         return FlightInfofragment;
                     case 2:
-                        return Requestfragment;
+                        return FlightAttendancefragment;
                 }
                 return null;
             }
