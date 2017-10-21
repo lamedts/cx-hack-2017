@@ -39,9 +39,9 @@ public class FlightInfoFragment extends Fragment {
 
     private ImageView bannerView;
     private TextView toLoc;
-    private TextView toLocLong
+    private TextView toLocLong;
     private TextView fromLoc;
-    private TextView fromLocLong
+    private TextView fromLocLong;
     private TextView flightNo;
 
     @Nullable
