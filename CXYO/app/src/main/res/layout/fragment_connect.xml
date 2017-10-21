@@ -24,7 +24,8 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/discuss1" />
+                android:src="@drawable/ic_forum"
+                android:tint="@android:color/darker_gray"/>
 
             <ImageButton
                 android:id="@+id/NetworkButton"
@@ -34,7 +35,8 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/network1" />
+                android:src="@drawable/ic_chat"
+                android:tint="@android:color/darker_gray"/>
 
             <ImageButton
                 android:id="@+id/ProfileButton"
@@ -44,7 +46,8 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/profile" />
+                android:src="@drawable/ic_setting"
+                android:tint="@android:color/darker_gray"/>
 
 
         </LinearLayout>

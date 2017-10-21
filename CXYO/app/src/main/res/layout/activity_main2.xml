@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Hi, Renee"
         android:textSize="30dp"
-
+        android:layout_marginTop="20dp"
         android:textColor="@android:color/white">
     </TextView>
 
@@ -74,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+
             android:layout_marginTop="20dp">
 
             <TextView
@@ -81,7 +82,8 @@
                 android:layout_width="118dp"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:gravity="center"
+                android:gravity="center_vertical"
+
                 android:textColor="@android:color/darker_gray"
                 android:text="Connect With" />
 

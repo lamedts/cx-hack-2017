@@ -5,13 +5,14 @@ package com.yo.cx.cxyo;
  */
 
 public class UserInfo {
-    private String name, info, reason;
+    private String name, gender, reason;
 
-    private int image;
+    private int image, age;
 
-    public UserInfo(String name, String info, String reason, int image){
+    public UserInfo(String name, String gender, int age, String reason, int image){
         this.name = name;
-        this.info = info;
+        this.gender = gender;
+        this.age = age;
         this.reason = reason;
         this.image = image;
     }
@@ -25,9 +26,11 @@ public class UserInfo {
         return this.name;
     }
 
-    public String getInfo(){
-        return this.info;
+    public String getGender(){
+        return this.gender;
     }
+
+    public int getAge() { return this.age;}
 
     public String getReason(){
         return this.reason;
@@ -41,9 +44,11 @@ public class UserInfo {
         this.name = name;
     }
 
-    public void setInfo(String info){
-        this.info = info;
+    public void setGender(String gender){
+        this.gender = gender;
     }
+
+    public void setAge(int age) { this.age = age; }
 
     public void setImage(int image){
         this.image = image;

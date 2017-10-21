@@ -10,24 +10,21 @@
     <!-- for profile fragmenrt -->
     <string name="hint_email">johndoe@cxhack.com</string>
     <string-array name="purpose_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Visiting</item>
+        <item>Business</item>
+        <item>Outdoor Recreation</item>
+        <item>Meetings</item>
+        <item>Personal</item>
+        <item>Entertainments</item>
     </string-array>
     <string-array name="meeting_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Sightseeing</item>
+        <item>Music</item>
+        <item>Brands</item>
+        <item>Beauty</item>
+        <item>Techie</item>
+        <item>Fashion</item>
+        <item>Sport</item>
     </string-array>
     <string name="title_activity_login">Sign in</string>
 

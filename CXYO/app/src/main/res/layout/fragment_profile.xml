@@ -35,7 +35,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/user"></ImageView>
+                android:src="@drawable/user_girl_1"></ImageView>
         </android.support.v7.widget.CardView>
 
         <android.support.design.widget.TextInputLayout
@@ -48,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Display Name"
+                android:text="Renee"
                 android:layout_marginTop="20dp"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -119,9 +120,9 @@
         <Button android:id="@+id/btn_connect"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Simple Connect"
+            android:text="Save"
             android:background="@null"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 

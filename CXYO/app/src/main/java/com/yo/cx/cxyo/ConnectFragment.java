@@ -7,6 +7,8 @@ import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,7 @@ import android.widget.ImageButton;
 
 public class ConnectFragment extends Fragment {
 
-    ImageButton DiscussButton, ProfileButton, NetWorkButton;
+    ImageButton DiscussButton, ProfileButton, NetworkButton;
 
 
     public ConnectFragment() {
@@ -29,13 +31,18 @@ public class ConnectFragment extends Fragment {
 
         DiscussButton = (ImageButton)rootView.findViewById(R.id.DiscussButton);
         ProfileButton = (ImageButton)rootView.findViewById(R.id.ProfileButton);
-        NetWorkButton = (ImageButton)rootView.findViewById(R.id.NetworkButton);
+        NetworkButton = (ImageButton)rootView.findViewById(R.id.NetworkButton);
+
+
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DiscussFragment()).commit();
 
         DiscussButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DrawableCompat.setTint(DiscussButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                DrawableCompat.setTint(NetworkButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+                DrawableCompat.setTint(ProfileButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, new DiscussFragment()).commit();
             }
@@ -44,14 +51,20 @@ public class ConnectFragment extends Fragment {
         ProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DrawableCompat.setTint(DiscussButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+                DrawableCompat.setTint(NetworkButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+                DrawableCompat.setTint(ProfileButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, new ProfileFragment()).commit();
             }
         });
 
-        NetWorkButton.setOnClickListener(new View.OnClickListener() {
+        NetworkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DrawableCompat.setTint(DiscussButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+                DrawableCompat.setTint(NetworkButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                DrawableCompat.setTint(ProfileButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, new NetworkFragment()).commit();
             }
