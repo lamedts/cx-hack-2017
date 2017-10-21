@@ -1,4 +1,4 @@
-# Project Title
+# CX Connect
 
 TODO: Write a project description
 
