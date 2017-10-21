@@ -39,7 +39,7 @@ public class ChatRoomFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_chat_room, container, false);
 
-        setupUI(rootView);
+        //setupUI(rootView);
 
         BackButton = (ImageButton)rootView.findViewById(R.id.back_button);
         SendButton = (ImageButton)rootView.findViewById(R.id.SendButton);
@@ -119,6 +119,7 @@ public class ChatRoomFragment extends Fragment {
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
     }
 
+    /*
     public void setupUI(View view) {
 
         // Set up touch listener for non-text box views to hide keyboard.
@@ -139,5 +140,6 @@ public class ChatRoomFragment extends Fragment {
             }
         }
     }
+    */
 
 }

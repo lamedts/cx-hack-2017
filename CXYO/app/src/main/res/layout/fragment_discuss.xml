@@ -1,13 +1,36 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yo.cx.cxyo.DiscussFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Discuss" />
+        android:layout_marginBottom="200dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/InFlightMeal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rating_before" />
+
+        <ImageButton
+            android:id="@+id/LongTermTopic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/long_term_topic" />
+
+    </LinearLayout>
 
 </FrameLayout>

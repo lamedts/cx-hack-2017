@@ -17,6 +17,12 @@ public class UserInfo {
         this.image = image;
     }
 
+    public UserInfo(String name, String details,int image){
+        this.name = name;
+        this.reason = details;
+        this.image = image;
+    }
+
     public UserInfo(String name, int image){
         this.name = name;
         this.image = image;

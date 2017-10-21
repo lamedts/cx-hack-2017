@@ -33,20 +33,14 @@ public class ExplorerFragment extends Fragment {
 
         UserInfoList = (ListView)rootView.findViewById(R.id.user_info_list);
 
-        UserInfos.add(new UserInfo("Mary","F", 21, "Same Company",getActivity().getResources().getIdentifier("user_girl", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Sam","M",25,"Live near you",getActivity().getResources().getIdentifier("user_boy_1", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Tom","M",35,"Mutual Friend",getActivity().getResources().getIdentifier("user_boy", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Kelvin","M",30,"Travel tgt before",getActivity().getResources().getIdentifier("user_man_1", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Amy Tam","F",25,"Live near you",getActivity().getResources().getIdentifier("user_girl", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Edward Lam","F", 21, "Same Company",getActivity().getResources().getIdentifier("user_boy", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Elaine Chan","F",35,"Mutual Friend",getActivity().getResources().getIdentifier("user_girl_1", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Kelvin Ng","M",30,"Travel tgt before",getActivity().getResources().getIdentifier("user_man_1", "drawable", getActivity().getPackageName())));
 
-        UserInfos.add(new UserInfo("Mary","F",21,"Same Company",getActivity().getResources().getIdentifier("user_girl", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Sam","M",22,"Live near you",getActivity().getResources().getIdentifier("user_boy_1", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Tom","M",25,"Mutual Friend",getActivity().getResources().getIdentifier("user_boy", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Kelvin","M",30,"Travel tgt before",getActivity().getResources().getIdentifier("user_man_1", "drawable", getActivity().getPackageName())));
-
-        UserInfos.add(new UserInfo("Mary","F",22,"Same Company",getActivity().getResources().getIdentifier("user_girl", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Sam","M",16,"Live near you",getActivity().getResources().getIdentifier("user_boy_1", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Tom","M",24,"Mutual Friend",getActivity().getResources().getIdentifier("user_boy", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Kelvin","M",44,"Travel tgt before",getActivity().getResources().getIdentifier("user_man_1", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Sam Lai","F",21,"Same Company",getActivity().getResources().getIdentifier("user_man_2", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Henry Cheung","M",22,"Live near you",getActivity().getResources().getIdentifier("user_man_3", "drawable", getActivity().getPackageName())));
+        UserInfos.add(new UserInfo("Tommy Li","M",25,"Mutual Friend",getActivity().getResources().getIdentifier("user_boy_1", "drawable", getActivity().getPackageName())));
 
         ArrayAdapter<UserInfo> adapter = new UserInfoListAdapter(getContext(),R.layout.list_user_info,UserInfos);
         UserInfoList.setAdapter(adapter);
