@@ -29,6 +29,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:text=""
+            android:maxLines="1"
             android:textSize="15dp" />
 
     </LinearLayout>
@@ -56,6 +57,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.2"
             android:hint="message"
+            android:focusableInTouchMode="true"
             android:textColor="@android:color/white" />
 
         <ImageButton
