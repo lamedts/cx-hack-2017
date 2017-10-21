@@ -1,13 +1,127 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yo.cx.cxyo.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Profile" />
+        android:scrollbars="vertical"
+        android:fillViewport="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <android.support.v7.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:elevation="24dp"
+            android:id="@+id/view2"
+            app:cardCornerRadius="100dp"
+            android:layout_centerHorizontal="true"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9">
+
+            <ImageView
+                android:id="@+id/layout_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/user"></ImageView>
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/register_display_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/register_display_name"
+                android:textColor="#000000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Display Name"
+                android:layout_marginTop="20dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/layout_purpose_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+
+        <Spinner
+            android:id="@+id/layout_meeting_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="118dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:inputType="textPersonName"
+                android:text="Connect With" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/sm_twitter" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/sm_google_plus" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/sm_linkedin" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/sm_facebook" />
+
+        </LinearLayout>
+
+        <Button android:id="@+id/btn_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Connect"
+            android:background="@null"
+            android:textColor="@android:color/darker_gray"/>
+
+    </LinearLayout>
 
 </FrameLayout>
