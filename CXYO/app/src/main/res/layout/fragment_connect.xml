@@ -14,27 +14,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <Button
+            <ImageButton
                 android:id="@+id/DiscussButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Discuss" />
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_man_1" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/ProfileButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Profile" />
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_man_2" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/NetworkButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Network" />
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_man_3" />
         </LinearLayout>
 
         <FrameLayout

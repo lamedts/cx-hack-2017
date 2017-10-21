@@ -11,10 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ConnectFragment extends Fragment {
 
-    Button DiscussButton, ProfileButton, NetWorkButton;
+    ImageButton DiscussButton, ProfileButton, NetWorkButton;
 
 
     public ConnectFragment() {
@@ -26,9 +27,9 @@ public class ConnectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_connect, container, false);
 
-        DiscussButton = (Button)rootView.findViewById(R.id.DiscussButton);
-        ProfileButton = (Button)rootView.findViewById(R.id.ProfileButton);
-        NetWorkButton = (Button)rootView.findViewById(R.id.NetworkButton);
+        DiscussButton = (ImageButton)rootView.findViewById(R.id.DiscussButton);
+        ProfileButton = (ImageButton)rootView.findViewById(R.id.ProfileButton);
+        NetWorkButton = (ImageButton)rootView.findViewById(R.id.NetworkButton);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ProfileFragment()).commit();
 

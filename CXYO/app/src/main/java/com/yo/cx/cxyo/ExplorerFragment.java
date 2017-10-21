@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -49,6 +50,23 @@ public class ExplorerFragment extends Fragment {
 
         ArrayAdapter<UserInfo> adapter = new UserInfoListAdapter(getContext(),R.layout.list_user_info,UserInfos);
         UserInfoList.setAdapter(adapter);
+
+        UserInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                UserInfo clickedUser = (UserInfo)adapterView.getItemAtPosition(i);
+
+                ChatRoomFragment t = new ChatRoomFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("target", clickedUser.getName());
+
+                t.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, t).commit();
+            }
+        });
+
 
         return rootView;
     }

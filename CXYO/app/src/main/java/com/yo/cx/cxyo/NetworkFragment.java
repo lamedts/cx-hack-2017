@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,23 @@ public class NetworkFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_network, container, false);
 
         mTabs = (android.support.design.widget.TabLayout) rootView.findViewById(R.id.tabs);
-        mTabs.addTab(mTabs.newTab().setText("Explorer"));
+        mTabs.addTab(mTabs.newTab().setText("Explore"));
         mTabs.addTab(mTabs.newTab().setText("Recent"));
         mTabs.addTab(mTabs.newTab().setText("Game"));
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.network_content_frame, new ExplorerFragment()).commit();
+
+        try{
+            String strtext = getArguments().getString("from");
+
+            if(strtext.equals("chatroom")){
+                mTabs.getTabAt(1).select();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.network_content_frame, new RecentFragment()).commit();
+            }
+
+        }catch (Exception e){
+            Log.e("NetWorkFragment", e.toString());
+        }
 
         mTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -46,7 +59,6 @@ public class NetworkFragment extends Fragment {
                     default:
                         break;
                 }
-
 
             }
 

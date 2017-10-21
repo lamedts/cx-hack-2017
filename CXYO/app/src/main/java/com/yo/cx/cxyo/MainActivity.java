@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         navigation.setSelectedItemId(R.id.navigation_flight_info);
 
+        navigation.setBackgroundColor(Color.parseColor("#1f504b"));
+
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
