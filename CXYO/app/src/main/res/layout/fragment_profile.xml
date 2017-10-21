@@ -6,7 +6,7 @@
     tools:context="com.yo.cx.cxyo.ProfileFragment">
 
     <LinearLayout
-        android:background="@android:color/white"
+        android:background="@null"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"

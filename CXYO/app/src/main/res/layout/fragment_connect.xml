@@ -12,37 +12,41 @@
         <LinearLayout
             android:id="@+id/container_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <ImageButton
                 android:id="@+id/DiscussButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
                 android:layout_weight="0.33"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user_man_1" />
-
-            <ImageButton
-                android:id="@+id/ProfileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.33"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/user_man_2" />
+                android:src="@drawable/discuss1" />
 
             <ImageButton
                 android:id="@+id/NetworkButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
                 android:layout_weight="0.33"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/user_man_3" />
+                android:src="@drawable/network1" />
+
+            <ImageButton
+                android:id="@+id/ProfileButton"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile" />
+
+
         </LinearLayout>
 
         <FrameLayout
