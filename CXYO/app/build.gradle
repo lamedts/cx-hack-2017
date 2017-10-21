@@ -24,6 +24,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile(name: 'inflight-android-sdk-service-core-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-advertising-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-airportinfo-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-catalogbrowsing-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-connectinggate-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-core-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-flightdata-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-metadata-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-news-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-passengerdata-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-seatlayout-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-streaming-emulator-03.01.0.3-Cathay', ext: 'aar')
+    compile(name: 'inflight-android-sdk-service-weather-emulator-03.01.0.3-Cathay', ext: 'aar')
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
