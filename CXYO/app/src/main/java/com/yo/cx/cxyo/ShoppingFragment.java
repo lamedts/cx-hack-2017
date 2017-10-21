@@ -19,14 +19,18 @@ import aero.panasonic.inflight.services.catalog.RequestCatalog;
 import aero.panasonic.inflight.services.catalog.RequestCategory;
 
 
+
+
 public class ShoppingFragment extends Fragment {
+
     private InFlight mInFlight;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mInFlight = new InFlight();
-        mInFlight.setAppId(getContext(), "c4ae8d6b48299d9a5fb607a4086faa15b4f433ff79a26685abe61268817d~1p8c2fb02f59f01c30e7af4cac36c4cf3f1");
+
+        mInFlight = ((MainActivity)getActivity()).getIFE();
+
 
         CatalogDataV1.initService(getContext(), CatalogDataV1.CatalogType.SHOPPING, new IInFlightCallback(){
             @Override

@@ -20,5 +20,6 @@ public class Main2Activity extends Activity {
         String message = editText.getText().toString();
         intent.putExtra("DIS_NAME", message);
         startActivity(intent);
+        this.finish();
     }
 }

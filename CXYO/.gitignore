@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+
+inflight-android-sdk/*.aar

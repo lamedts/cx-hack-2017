@@ -10,6 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import aero.panasonic.inflight.services.InFlight;
+
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
     private ConnectFragment Connectfragment = new ConnectFragment();
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     private BottomNavigationView navigation;
     private ViewPager viewPager;
+
+    private InFlight mInFlight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public void onPageSelected(int position) {
         navigation.getMenu().getItem(position).setChecked(true);
+    }
+
+    public InFlight getIFE() {
+        mInFlight = new InFlight();
+        // mInFlight.setAppId(this, "c4ae8d6b48299d9a5fb607a4086faa15b4f433ff79a26685abe61268817d~1p8c2fb02f59f01c30e7af4cac36c4cf3f1");
+        // ed app key
+        mInFlight.setAppId(this, "c0a147fb1f3f7dfda334c9b7d8cd6d8a5482c1da17e5cb810f73a12d3525~0p7796dbabde190bfc894acb24b15098197");
+        return mInFlight;
     }
 
     @Override

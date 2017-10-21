@@ -10,12 +10,8 @@
     <!-- for profile fragmenrt -->
     <string name="hint_email">johndoe@cxhack.com</string>
     <string-array name="purpose_array">
-        <item>Visiting</item>
+        <item>Leisure</item>
         <item>Business</item>
-        <item>Outdoor Recreation</item>
-        <item>Meetings</item>
-        <item>Personal</item>
-        <item>Entertainments</item>
     </string-array>
     <string-array name="meeting_array">
         <item>Sightseeing</item>
