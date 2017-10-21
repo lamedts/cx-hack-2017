@@ -39,9 +39,9 @@ public class FlightInfoFragment extends Fragment {
 
     private ImageView bannerView;
     private TextView toLoc;
-    private TextView toLocLong
+    private TextView toLocLong;
     private TextView fromLoc;
-    private TextView fromLocLong
+    private TextView fromLocLong;
     private TextView flightNo;
 
     @Nullable
@@ -50,8 +50,8 @@ public class FlightInfoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_flight_info, container, false);
         bannerView = (ImageView) view.findViewById(R.id.banner);
-        toLoc = (TextView) view.findViewById(R.id.from_loc);
-        fromLoc = (TextView) view.findViewById(R.id.to_loc);
+        toLoc = (TextView) view.findViewById(R.id.to_loc);
+        fromLoc = (TextView) view.findViewById(R.id.from_loc);
         toLocLong = (TextView) view.findViewById(R.id.to_long_loc);
         fromLocLong = (TextView) view.findViewById(R.id.from_long_loc);
         flightNo = (TextView) view.findViewById(R.id.flight_no);
