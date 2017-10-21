@@ -33,9 +33,6 @@ public class RecentFragment extends Fragment {
         UserInfoList = (ListView)rootView.findViewById(R.id.recent_user_info_list);
 
         UserInfos.add(new UserInfo("Mary",getActivity().getResources().getIdentifier("user_girl", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Sam",getActivity().getResources().getIdentifier("user_boy_1", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Tom",getActivity().getResources().getIdentifier("user_boy", "drawable", getActivity().getPackageName())));
-        UserInfos.add(new UserInfo("Kelvin",getActivity().getResources().getIdentifier("user_man_1", "drawable", getActivity().getPackageName())));
 
         ArrayAdapter<UserInfo> adapter = new UserInfoListAdapter(getContext(),R.layout.list_user_info,UserInfos);
         UserInfoList.setAdapter(adapter);
