@@ -12,11 +12,15 @@ import android.view.ViewGroup;
 
 import org.json.JSONArray;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import aero.panasonic.inflight.services.IInFlightCallback;
 import aero.panasonic.inflight.services.InFlight;
 import aero.panasonic.inflight.services.catalog.CatalogDataV1;
 import aero.panasonic.inflight.services.catalog.RequestCatalog;
 import aero.panasonic.inflight.services.catalog.RequestCategory;
+import aero.panasonic.inflight.services.catalog.RequestCategoryItem;
 
 
 public class ShoppingFragment extends Fragment {
@@ -39,6 +43,14 @@ public class ShoppingFragment extends Fragment {
                 RequestCategory requestCategory = catalogDataV1.requestCatalogCategories("1a","",categoryResponseListener);
                 if (requestCategory != null) {
                     requestCategory.executeAsync();
+                }
+
+                ArrayList<String> list = new ArrayList<String>();
+                list.add("1a001");
+                list.add("2a005");
+                RequestCategoryItem requestCategoryItem = 	catalogDataV1.requestCategoryItems(list, "", categoryItemResponseListener);
+                if (requestCategoryItem != null) {
+                    requestCategoryItem.executeAsync();
                 }
             }
             @Override
@@ -81,6 +93,23 @@ public class ShoppingFragment extends Fragment {
                 }
             }else{
                 Log.i("Info", "No Catalog Information");
+            }
+        }
+    };
+
+    private final CatalogDataV1.CategoryItemResponseListener categoryItemResponseListener = new CatalogDataV1.CategoryItemResponseListener(){
+        @Override
+        public void onError(CatalogDataV1.Error error) {
+            Log.i("Info", "Category Item Error: " + error.toString());
+        }
+        @Override
+        public void onCategoryItemReceived(JSONArray jsonArray) {
+            if(jsonArray.length() > 0){
+                for(int i = 0; i < jsonArray.length(); i++){
+                    Log.i("Info", "Category Item: " + jsonArray.opt(i).toString());
+                }
+            }else{
+                Log.i("Info", "No Category Item Information");
             }
         }
     };

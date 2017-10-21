@@ -5,10 +5,9 @@
     tools:context="com.yo.cx.cxyo.ShoppingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        tools:text="Shopping" />
 
+    <GridView
+        android:id="@+id/recommendation_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>
