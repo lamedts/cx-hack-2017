@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.yo.cx.cxyo.Main2Activity"
+    android:gravity="center"
+    android:scrollbars="vertical"
+    android:fillViewport="true"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hi, Renee"
+        android:textSize="30dp"
+
+        android:textColor="@android:color/white">
+    </TextView>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
+        tools:context="com.yo.cx.cxyo.Main2Activity"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:theme="@style/TextLabel">
+
+            <EditText
+                android:id="@+id/register_display_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Display Name"
+                android:imeActionId="@+id/login"
+                android:imeOptions="actionUnspecified"
+                android:textColor="@android:color/white"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            app:buttonTint="@android:color/white"
+            android:theme="@style/checkBoxStyle"
+            android:text="Share my profile"
+            android:layout_above="@+id/button"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="118dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"
+                android:text="Connect With" />
+
+            <ImageButton
+                android:id="@+id/reg_tw"
+                android:layout_width="@dimen/sm_icon"
+                android:layout_height="@dimen/sm_icon"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/sm_twitter" />
+
+            <ImageButton
+                android:id="@+id/reg_gp"
+                android:layout_width="@dimen/sm_icon"
+                android:layout_height="@dimen/sm_icon"
+                android:layout_marginStart="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/sm_google_plus" />
+
+            <ImageButton
+                android:id="@+id/reg_in"
+                android:layout_width="@dimen/sm_icon"
+                android:layout_height="@dimen/sm_icon"
+                android:layout_marginStart="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/sm_linkedin" />
+
+            <ImageButton
+                android:id="@+id/reg_fb"
+                android:layout_width="@dimen/sm_icon"
+                android:layout_height="@dimen/sm_icon"
+                android:layout_marginStart="5dp"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/sm_facebook" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_border"
+            android:text="Next"
+            android:onClick="go2Main"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

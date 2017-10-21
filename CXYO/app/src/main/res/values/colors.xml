@@ -3,4 +3,6 @@
     <color name="colorPrimary">#1f504b</color>
     <color name="colorPrimaryDark">#1f504b</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
