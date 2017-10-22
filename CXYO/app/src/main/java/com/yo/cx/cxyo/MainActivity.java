@@ -1,7 +1,9 @@
 package com.yo.cx.cxyo;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -27,6 +29,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+        SharedPreferences.Editor e = getPrefs.edit();
+
+        //  Edit preference to make it false because we don't want this to run again
+        e.putBoolean("FrontfirstStart", true);
+        e.apply();
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
