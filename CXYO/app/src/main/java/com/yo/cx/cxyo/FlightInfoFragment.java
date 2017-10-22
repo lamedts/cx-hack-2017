@@ -1,15 +1,23 @@
 package com.yo.cx.cxyo;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -83,6 +91,7 @@ public class FlightInfoFragment extends Fragment {
 
         mInFlight = ((MainActivity)getActivity()).getIFE();
 
+<<<<<<< HEAD
         try {
 
             AdvertisingV1.initService(getContext(), new IInFlightCallback() {
@@ -98,6 +107,88 @@ public class FlightInfoFragment extends Fragment {
                     advertisingV1.requestBannerByZonePath("panasonic", attribute, new AdvertisingV1.OnBannerReceiveListener() {
                         @Override
                         public void onBannerReceived(Banner banner) {
+=======
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+
+        final View ContentsView = getActivity().getLayoutInflater().inflate(R.layout.diag_layout, null);
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //  Initialize SharedPreferences
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+
+                //  Create a new boolean and preference and set it to true
+                // For Info day Only
+                //boolean isSeemInfoDayFirstStart = getPrefs.getBoolean("SeemInfoDayFirstStart", true);
+                boolean isFirstStart = getPrefs.getBoolean("FrontfirstStart", true);
+
+                //  If the activity has never started before...
+                if (isFirstStart) {
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Spinner purpose_spinner = (Spinner) ContentsView.findViewById(R.id.layout_purpose_spinner);
+                            ArrayAdapter<CharSequence> purpose_adapter = ArrayAdapter.createFromResource(getContext(), R.array.purpose_array, android.R.layout.simple_spinner_item);
+                            purpose_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            purpose_spinner.setAdapter(purpose_adapter);
+
+                            Spinner meeting_spinner = (Spinner) ContentsView.findViewById(R.id.layout_meeting_spinner);
+                            ArrayAdapter<CharSequence> meet_adapter = ArrayAdapter.createFromResource(getContext(), R.array.meeting_array, android.R.layout.simple_spinner_item);
+                            meet_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            meeting_spinner.setAdapter(meet_adapter);
+
+                            Button sendButton = (Button)ContentsView.findViewById(R.id.sendButton);
+                            Button cancelButton = (Button)ContentsView.findViewById(R.id.cancelButton);
+
+                            // set title
+                            alertDialogBuilder.setTitle("Hey!");
+
+                            alertDialogBuilder.setView(ContentsView);
+                            // create alert dialog
+                            final AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
+
+                            sendButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    alertDialog.dismiss();
+                                }
+                            });
+
+                            cancelButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    alertDialog.dismiss();
+                                }
+                            });
+                        }
+                    });
+
+                    //  Make a new preferences editor
+                    SharedPreferences.Editor e = getPrefs.edit();
+
+                    //  Edit preference to make it false because we don't want this to run again
+                    e.putBoolean("FrontfirstStart", false);
+
+                    //  Apply changes
+                    e.apply();
+                }
+            }
+        });
+
+        // Start the thread
+        t.start();
+
+        AdvertisingV1.initService(getContext(), new IInFlightCallback() {
+            @Override
+            public void onInitServiceComplete(Object mServiceObject, String serviceName) {
+                Log.v("debug", "onInitServiceComplete(): " + serviceName);
+                advertisingV1 = (AdvertisingV1) mServiceObject;
+                AdvertisingAttributes attribute = new AdvertisingAttributes();
+>>>>>>> e8eb4f596d222638a65e63a13b405c80d8daff31
 
                             Log.i("Info", "onBannerReceived() " + banner.toString());
                             Picasso.with(getContext()).load(banner.getContentUrl()).into(bannerView);
