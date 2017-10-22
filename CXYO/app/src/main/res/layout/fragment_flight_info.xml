@@ -21,6 +21,34 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:background="@color/colorPrimaryDark"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_take_off"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/flight_no"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textSize="40dp"
+                    android:textColor="@color/colorWhite"
+                    android:text="Flight No"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
@@ -28,15 +56,7 @@
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:id="@+id/flight_no"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textAllCaps="true"
-                    android:textSize="30dp"
-                    android:layout_margin="15dp"
-                    android:text="Flight No"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,6 +142,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:textSize="30dp"
+                        android:layout_marginBottom="15dp"
                         android:textAllCaps="true"
                         android:textColor="@color/colorWhite"
                         android:layout_weight="0.4"
@@ -140,14 +161,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/terminal_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -163,14 +184,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/gate_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -186,14 +207,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/time_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -231,14 +252,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/ati_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -254,14 +275,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/dis_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -277,14 +298,14 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/lat_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -300,23 +321,24 @@
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp" />
                         <TextView
-                            android:id="@+id/info"
+                            android:id="@+id/lng_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="left"
+                            android:gravity="right"
                             android:layout_weight="0.4"
                             android:textColor="@color/colorWhite"
                             android:textSize="20dp"
-                            android:text="LOC"/>
+                            android:text="--"/>
                     </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
-d
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp"
                 android:orientation="vertical">

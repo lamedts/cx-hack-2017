@@ -17,6 +17,9 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
@@ -30,6 +33,8 @@ import aero.panasonic.inflight.services.advertising.Banner;
 import aero.panasonic.inflight.services.connectinggate.ConnectingFlight;
 import aero.panasonic.inflight.services.connectinggate.ConnectingGateV1;
 import aero.panasonic.inflight.services.connectinggate.CurrentFlight;
+import aero.panasonic.inflight.services.flightdata.v2.FlightData;
+import aero.panasonic.inflight.services.flightdata.v2.FlightDataInfo;
 
 
 public class FlightInfoFragment extends Fragment {
@@ -37,6 +42,8 @@ public class FlightInfoFragment extends Fragment {
     private InFlight mInFlight;
     private AdvertisingV1 advertisingV1;
     private ConnectingGateV1 connectingGateV1;
+    private FlightData mFlightData;
+    private Date currentTimeStamp = new Date();
 
     private ImageView bannerView;
     private TextView toLoc;
@@ -44,6 +51,14 @@ public class FlightInfoFragment extends Fragment {
     private TextView fromLoc;
     private TextView fromLocLong;
     private TextView flightNo;
+    private TextView terInfo;
+    private TextView gateInfo;
+    private TextView timeInfo;
+    private TextView altInfo;
+    private TextView disInfo;
+    private TextView lngInfo;
+    private TextView latInfo;
+
     CountDownLatch latch = new CountDownLatch(2);
 
     @Nullable
@@ -57,56 +72,92 @@ public class FlightInfoFragment extends Fragment {
         toLocLong = (TextView) view.findViewById(R.id.to_long_loc);
         fromLocLong = (TextView) view.findViewById(R.id.from_long_loc);
         flightNo = (TextView) view.findViewById(R.id.flight_no);
+        terInfo = (TextView) view.findViewById(R.id.terminal_info);
+        gateInfo = (TextView) view.findViewById(R.id.gate_info);
+        timeInfo = (TextView) view.findViewById(R.id.time_info);
+        altInfo = (TextView) view.findViewById(R.id.ati_info);
+        disInfo = (TextView) view.findViewById(R.id.dis_info);
+        lngInfo = (TextView) view.findViewById(R.id.lng_info);
+        latInfo = (TextView) view.findViewById(R.id.lat_info);
+
 
         mInFlight = ((MainActivity)getActivity()).getIFE();
 
-        AdvertisingV1.initService(getContext(), new IInFlightCallback() {
-            @Override
-            public void onInitServiceComplete(Object mServiceObject, String serviceName) {
-                Log.v("debug", "onInitServiceComplete(): " + serviceName);
-                advertisingV1 = (AdvertisingV1) mServiceObject;
-                AdvertisingAttributes attribute = new AdvertisingAttributes();
+        try {
 
-                //Banner
-                attribute.setZoneWidth(728);
-                attribute.setZoneHeight(90);
-                advertisingV1.requestBannerByZonePath("panasonic", attribute, new AdvertisingV1.OnBannerReceiveListener() {
-                    @Override
-                    public void onBannerReceived(Banner banner) {
+            AdvertisingV1.initService(getContext(), new IInFlightCallback() {
+                @Override
+                public void onInitServiceComplete(Object mServiceObject, String serviceName) {
+                    Log.v("debug", "onInitServiceComplete(): " + serviceName);
+                    advertisingV1 = (AdvertisingV1) mServiceObject;
+                    AdvertisingAttributes attribute = new AdvertisingAttributes();
 
-                        Log.i("Info", "onBannerReceived() " + banner.toString());
-                        Picasso.with(getContext()).load(banner.getContentUrl()).into(bannerView);
+                    //Banner
+                    attribute.setZoneWidth(728);
+                    attribute.setZoneHeight(90);
+                    advertisingV1.requestBannerByZonePath("panasonic", attribute, new AdvertisingV1.OnBannerReceiveListener() {
+                        @Override
+                        public void onBannerReceived(Banner banner) {
 
-                    }
+                            Log.i("Info", "onBannerReceived() " + banner.toString());
+                            Picasso.with(getContext()).load(banner.getContentUrl()).into(bannerView);
 
-                    @Override
-                    public void onError(AdvertisingV1.Error error) {
-                        Log.e("Error", AdvertisingV1.Error.getErrorMessage(error));
-                    }
-                });
-            }
-            @Override
-            public void onInitServiceFailed(String s, InFlight.Error error) {
-                Log.e("Error", "onInitServiceFailed()" + InFlight.Error.getErrorMessage(error));
-            }
-        }, mInFlight);
+                        }
 
-        ConnectingGateV1.initService(getActivity(), new IInFlightCallback() {
-            @Override
-            public void onInitServiceComplete(Object o, String s) {
-                if(s.equals(InFlightServices.CONNECTING_GATE_V1_SERVICE.getServiceName())){
-                    connectingGateV1 = (ConnectingGateV1) o;
-                    connectingGateV1.requestConnectingGateInfo("",null,"",connectingGateInfoListener);
-                    latch.countDown();
-                    Log.i("[latch] - gate", Float.toString(latch.getCount()));
+                        @Override
+                        public void onError(AdvertisingV1.Error error) {
+                            Log.e("Error", AdvertisingV1.Error.getErrorMessage(error));
+                        }
+                    });
                 }
-            }
 
-            @Override
-            public void onInitServiceFailed(String s, InFlight.Error error) {
-                Log.e("Error", "onInitServiceFailed()" + InFlight.Error.getErrorMessage(error));
-            }
-        },mInFlight);
+                @Override
+                public void onInitServiceFailed(String s, InFlight.Error error) {
+                    Log.e("Error", "onInitServiceFailed()" + InFlight.Error.getErrorMessage(error));
+                }
+            }, mInFlight);
+
+            ConnectingGateV1.initService(getActivity(), new IInFlightCallback() {
+                @Override
+                public void onInitServiceComplete(Object o, String s) {
+                    if (s.equals(InFlightServices.CONNECTING_GATE_V1_SERVICE.getServiceName())) {
+                        connectingGateV1 = (ConnectingGateV1) o;
+                        connectingGateV1.requestConnectingGateInfo("", null, "", connectingGateInfoListener);
+                        latch.countDown();
+                        Log.i("[latch] - gate", Float.toString(latch.getCount()));
+                    }
+                }
+
+                @Override
+                public void onInitServiceFailed(String s, InFlight.Error error) {
+                    Log.e("Error", "onInitServiceFailed()" + InFlight.Error.getErrorMessage(error));
+                }
+            }, mInFlight);
+
+            FlightData.initService(getContext(), new IInFlightCallback() {
+                @Override
+                public void onInitServiceComplete(Object o, String s) {
+                    if (s.equals(InFlightServices.FLIGHTDATA_V2_SERVICE.getServiceName())) {
+                        mFlightData = (FlightData) o;
+                        //Show Flight Information
+                        Log.i("Info", "Last Updated: " + currentTimeStamp);
+                        Log.i("Info", "Flight Altitude: " + mFlightData.getAltitude().getFeet() + " feet");
+                        Log.i("Info", "Current Coordinates: " + mFlightData.getCurrentCoordinates().getLatitude() + ", " + mFlightData.getCurrentCoordinates().getLongitude());
+
+                        ArrayList<FlightDataInfo> flightInfoList = new ArrayList<FlightDataInfo>(Arrays.asList(FlightDataInfo.ALTITUDE, FlightDataInfo.CURRENT_COORDINATES));
+                        mFlightData.subscribe(flightInfoList, flightDataListener);
+                    }
+                }
+
+                @Override
+                public void onInitServiceFailed(String s, InFlight.Error error) {
+                    Log.e("Error", "onInitServiceFailed() " + error.toString());
+                }
+            }, mInFlight);
+
+        } catch (Exception ex) {
+            return view;
+        }
 
 //        try {
 //            Log.i("[latch] - try", Float.toString(latch.getCount()));
@@ -117,6 +168,24 @@ public class FlightInfoFragment extends Fragment {
 
         return view;
     }
+
+    private final FlightData.FlightDataListener flightDataListener = new FlightData.FlightDataListener() {
+        @Override
+        public void onFlightDataChanged(FlightData flightData, FlightDataInfo flightDataInfo) {
+            Log.i("Info","Flight Data Changed: " + currentTimeStamp);
+            Log.i("Info","Flight Altitude Feet: " + mFlightData.getAltitude().getFeet());
+            Log.i("Info","Current Coordinates: " + mFlightData.getCurrentCoordinates().getLatitude() + ", " + mFlightData.getCurrentCoordinates().getLongitude());
+            altInfo.setText("" + mFlightData.getAltitude().getFeet());
+            disInfo.setText("" + mFlightData.getDistanceToDestination().getKilometers());
+            lngInfo.setText(String.format("%.2f", mFlightData.getCurrentCoordinates().getLatitude()));
+            latInfo.setText(String.format("%.2f", mFlightData.getCurrentCoordinates().getLongitude()));
+        }
+
+        @Override
+        public void onFlightDataError(String s) {
+            Log.e("Error", "onFlightDataError() " + s.toString());
+        }
+    };
 
     private final ConnectingGateV1.ConnectingGateInfoListener connectingGateInfoListener = new ConnectingGateV1.ConnectingGateInfoListener(){
         @Override
@@ -143,6 +212,12 @@ public class FlightInfoFragment extends Fragment {
             // getDate()
             // getText()
             // getString()
+
+            terInfo.setText(currentFlight.getArrivalTerminal());
+            gateInfo.setText(currentFlight.getArrivalGate());
+            timeInfo.setText(currentFlight.getEstimatedArrivalTime().getText());
+
+
 
             if (list.size() > 0) {
                 for(ConnectingFlight connectingFlight : list){

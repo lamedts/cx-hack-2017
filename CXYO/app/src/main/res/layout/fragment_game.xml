@@ -12,22 +12,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
+            android:background="@drawable/textlines"
             android:orientation="horizontal"
             android:padding="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/asia_miles" />
+                android:src="@drawable/asia_miles"
+                android:layout_weight="0.5"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:text="100,000"
                 android:textSize="25dp" />
 
