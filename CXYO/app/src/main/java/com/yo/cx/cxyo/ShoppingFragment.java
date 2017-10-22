@@ -83,10 +83,17 @@ public class ShoppingFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_shopping, container, false);
         recommendation_grid = (GridView)rootView.findViewById(R.id.recommendation_grid);
 
+        product_infos.add(new ProductInfo("SK-II Facial Treatment Essence Duo Se...", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD338H16Q2.jpg", 304));
+        product_infos.add(new ProductInfo("SK-II Facial Treatment Essence 250ml", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD225T16Q2.jpg", 167));
+        product_infos.add(new ProductInfo("SK-II Facial Treatment Mask (10 pieces)", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD225D16Q2.jpg", 113));
+        product_infos.add(new ProductInfo("SK-II 7-piece Gift Set", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD338C16Q2.jpg", 0));
+        product_infos.add(new ProductInfo("SK-II GenOptics Spots Essence 50ml", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD338J16Q2.jpg", 165));
+        product_infos.add(new ProductInfo("SK-II GenOptics Aura Essence 50ml", "https://d18kl27lpu4e4b.cloudfront.net/inflight/services/catalogs/shopping/browse/v1/images/1024x600/poster_245070_SDD338K16Q2.jpg", 197));
+
         productListAdapter = new ProductListAdapter(getContext(),R.layout.fragment_product_box,product_infos);
         recommendation_grid.setAdapter(productListAdapter);
 
-        CatalogDataV1.initService(getContext(), CatalogDataV1.CatalogType.SHOPPING, new IInFlightCallback(){
+        /*CatalogDataV1.initService(getContext(), CatalogDataV1.CatalogType.SHOPPING, new IInFlightCallback(){
             @Override
             public void onInitServiceComplete(Object o, String s) {
                 CatalogDataV1 catalogDataV1 = (CatalogDataV1) o;
@@ -104,7 +111,7 @@ public class ShoppingFragment extends Fragment {
             public void onInitServiceFailed(String s, InFlight.Error error) {
                 Log.e("Error", "onInitServiceFailed()" + InFlight.Error.getErrorMessage(error));
             }
-        }, mInFlight);
+        }, mInFlight);*/
         // Inflate the layout for this fragment
         return rootView;
     }
