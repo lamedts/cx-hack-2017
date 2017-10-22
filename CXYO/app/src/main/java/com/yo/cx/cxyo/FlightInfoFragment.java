@@ -165,14 +165,15 @@ public class FlightInfoFragment extends Fragment {
         // Start the thread
         t.start();
 
+
         try {
 
             AdvertisingV1.initService(getContext(), new IInFlightCallback() {
-            @Override
-            public void onInitServiceComplete(Object mServiceObject, String serviceName) {
-                Log.v("debug", "onInitServiceComplete(): " + serviceName);
-                advertisingV1 = (AdvertisingV1) mServiceObject;
-                AdvertisingAttributes attribute = new AdvertisingAttributes();
+                @Override
+                public void onInitServiceComplete(Object mServiceObject, String serviceName) {
+                    Log.v("debug", "onInitServiceComplete(): " + serviceName);
+                    advertisingV1 = (AdvertisingV1) mServiceObject;
+                    AdvertisingAttributes attribute = new AdvertisingAttributes();
 
                     //Banner
                     attribute.setZoneWidth(728);
