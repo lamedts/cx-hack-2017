@@ -5,39 +5,54 @@
     android:layout_height="match_parent"
     tools:context="com.yo.cx.cxyo.DiscussFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:orientation="vertical">
-
-        <ImageButton
-            android:id="@+id/InFlightMeal"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/rating_before" />
+            android:weightSum="1"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/LongTermTopic"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.30"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/long_term_topic" />
+            <ImageButton
+                android:id="@+id/InFlightMeal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/rating_before" />
 
-        <ImageButton
-            android:id="@+id/random_post"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.30"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/random_post" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/LongTermTopic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:color/transparent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/long_term_topic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <ImageButton
+                android:id="@+id/random_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30"
+                android:background="@android:color/transparent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/random_post" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
