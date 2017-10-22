@@ -34,6 +34,9 @@ public class ConnectFragment extends Fragment {
         NetworkButton = (ImageButton)rootView.findViewById(R.id.NetworkButton);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DiscussFragment()).commit();
+        DrawableCompat.setTint(DiscussButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+        DrawableCompat.setTint(NetworkButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
+        DrawableCompat.setTint(ProfileButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
 
         DiscussButton.setOnClickListener(new View.OnClickListener() {
             @Override

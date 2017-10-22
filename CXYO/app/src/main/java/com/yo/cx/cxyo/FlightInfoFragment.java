@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import aero.panasonic.inflight.services.InFlight;
 import aero.panasonic.inflight.services.IInFlightCallback;
@@ -43,6 +44,7 @@ public class FlightInfoFragment extends Fragment {
     private TextView fromLoc;
     private TextView fromLocLong;
     private TextView flightNo;
+    CountDownLatch latch = new CountDownLatch(2);
 
     @Nullable
     @Override
@@ -50,8 +52,8 @@ public class FlightInfoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_flight_info, container, false);
         bannerView = (ImageView) view.findViewById(R.id.banner);
-        toLoc = (TextView) view.findViewById(R.id.from_loc);
-        fromLoc = (TextView) view.findViewById(R.id.to_loc);
+        toLoc = (TextView) view.findViewById(R.id.to_loc);
+        fromLoc = (TextView) view.findViewById(R.id.from_loc);
         toLocLong = (TextView) view.findViewById(R.id.to_long_loc);
         fromLocLong = (TextView) view.findViewById(R.id.from_long_loc);
         flightNo = (TextView) view.findViewById(R.id.flight_no);
@@ -71,8 +73,10 @@ public class FlightInfoFragment extends Fragment {
                 advertisingV1.requestBannerByZonePath("panasonic", attribute, new AdvertisingV1.OnBannerReceiveListener() {
                     @Override
                     public void onBannerReceived(Banner banner) {
+
                         Log.i("Info", "onBannerReceived() " + banner.toString());
                         Picasso.with(getContext()).load(banner.getContentUrl()).into(bannerView);
+
                     }
 
                     @Override
@@ -93,6 +97,8 @@ public class FlightInfoFragment extends Fragment {
                 if(s.equals(InFlightServices.CONNECTING_GATE_V1_SERVICE.getServiceName())){
                     connectingGateV1 = (ConnectingGateV1) o;
                     connectingGateV1.requestConnectingGateInfo("",null,"",connectingGateInfoListener);
+                    latch.countDown();
+                    Log.i("[latch] - gate", Float.toString(latch.getCount()));
                 }
             }
 
@@ -102,6 +108,12 @@ public class FlightInfoFragment extends Fragment {
             }
         },mInFlight);
 
+//        try {
+//            Log.i("[latch] - try", Float.toString(latch.getCount()));
+//            latch.await();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
         return view;
     }
@@ -113,6 +125,9 @@ public class FlightInfoFragment extends Fragment {
         }
         @Override
         public void onConnectingGateInfoAvailable(CurrentFlight currentFlight, List<ConnectingFlight> list) {
+
+            latch.countDown();
+
             Log.i("Info", "Current Flight Info: " + currentFlight.toString() + "\n");
             // Log.i("Info", "Current Flight Info: " + currentFlight.get() + "\n");
 
@@ -121,6 +136,13 @@ public class FlightInfoFragment extends Fragment {
             flightNo.setText(currentFlight.getFlightNumber());
             fromLocLong.setText(currentFlight.getDepartureAirport().getCity());
             toLocLong.setText(currentFlight.getArrivalAirport().getCity());
+
+            // getArrivalGate()
+            // getArrivalTerminal()
+            // getEstimatedArrivalTime()
+            // getDate()
+            // getText()
+            // getString()
 
             if (list.size() > 0) {
                 for(ConnectingFlight connectingFlight : list){
