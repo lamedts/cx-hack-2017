@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:background="@android:color/transparent"
-            android:src="@drawable/send_icon" />
+            android:src="@drawable/send_icon"
+            android:tint="#1f504b"/>
 
     </LinearLayout>
 

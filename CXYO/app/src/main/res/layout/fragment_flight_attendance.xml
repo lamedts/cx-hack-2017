@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
+    android:weightSum="1"
     tools:context="com.yo.cx.cxyo.FlightAttendanceFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -15,27 +16,27 @@
         android:id="@+id/request_container_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
+        android:orientation="horizontal"
         android:paddingBottom="10dp"
-        android:orientation="horizontal">
+        android:paddingTop="10dp">
 
         <ImageButton
             android:id="@+id/RequestButton"
-            android:layout_width="25dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="0.5"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_help"
-            android:tint="@android:color/darker_gray"/>
+            android:tint="@android:color/darker_gray" />
 
         <ImageButton
             android:id="@+id/ShoppingButton"
-            android:layout_width="25dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@android:color/transparent"
             android:layout_weight="0.5"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_shopping"
-            android:tint="@android:color/darker_gray"/>
+            android:tint="@android:color/darker_gray" />
 
     </LinearLayout>
 

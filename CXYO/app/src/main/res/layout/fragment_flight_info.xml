@@ -17,7 +17,7 @@
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:srcCompat="@android:color/darker_gray" />
+                android:background="@android:color/transparent" />
 
             <LinearLayout
                 android:layout_width="match_parent"

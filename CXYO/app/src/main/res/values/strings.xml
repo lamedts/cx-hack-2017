@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CXYO</string>
+    <string name="app_name">CONNEXT</string>
     <string name="title_connect">Connect</string>
     <string name="title_flight_info">Flight</string>
     <string name="title_request">Raise</string>

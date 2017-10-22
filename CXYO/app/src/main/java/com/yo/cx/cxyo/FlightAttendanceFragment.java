@@ -25,6 +25,8 @@ public class FlightAttendanceFragment extends Fragment {
         ShoppingButton = (ImageButton)rootView.findViewById(R.id.ShoppingButton);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.request_content_frame, new RequestFragment()).commit();
+        DrawableCompat.setTint(RequestButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+        DrawableCompat.setTint(ShoppingButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
 
         RequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
