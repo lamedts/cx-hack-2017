@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import aero.panasonic.inflight.services.IInFlightCallback;
 import aero.panasonic.inflight.services.InFlight;
@@ -26,6 +28,10 @@ import aero.panasonic.inflight.services.catalog.RequestCategoryItem;
 public class ShoppingFragment extends Fragment {
     private InFlight mInFlight;
 
+    private List<String> product_titles;
+    private List<Integer> product_prices;
+    private List<String> product_img_urls;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,20 +41,7 @@ public class ShoppingFragment extends Fragment {
             @Override
             public void onInitServiceComplete(Object o, String s) {
                 CatalogDataV1 catalogDataV1 = (CatalogDataV1) o;
-                Log.i("Info", "Catalog Object: " + catalogDataV1.getCatalogType());
-                RequestCatalog requestCatalog = catalogDataV1.requestCatalogs("","eng",catalogResponseListener);
-                if (requestCatalog != null) {
-                    requestCatalog.executeAsync();
-                }
-                RequestCategory requestCategory = catalogDataV1.requestCatalogCategories("1a","",categoryResponseListener);
-                if (requestCategory != null) {
-                    requestCategory.executeAsync();
-                }
-
-                ArrayList<String> list = new ArrayList<String>();
-                list.add("1a001");
-                list.add("2a005");
-                RequestCategoryItem requestCategoryItem = 	catalogDataV1.requestCategoryItems(list, "", categoryItemResponseListener);
+                RequestCategoryItem requestCategoryItem = catalogDataV1.requestCategoryItems("1a047", "", categoryItemResponseListener);
                 if (requestCategoryItem != null) {
                     requestCategoryItem.executeAsync();
                 }
@@ -62,41 +55,6 @@ public class ShoppingFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_shopping, container, false);
     }
 
-
-    private final CatalogDataV1.CategoryResponseListener categoryResponseListener = new CatalogDataV1.CategoryResponseListener(){
-        @Override
-        public void onError(CatalogDataV1.Error error) {
-            Log.i("Info", "Category Error: " + error.toString());
-        }
-        @Override
-        public void onCategoryReceived(JSONArray jsonArray) {
-            if(jsonArray.length() > 0){
-                for(int i = 0; i < jsonArray.length(); i++){
-                    Log.i("Info", "Category: " + jsonArray.opt(i).toString());
-                }
-            }else{
-                Log.i("Info", "No Category Information");
-            }
-        }
-    };
-
-    private final CatalogDataV1.CatalogResponseListener catalogResponseListener = new CatalogDataV1.CatalogResponseListener(){
-        @Override
-        public void onError(CatalogDataV1.Error error) {
-            Log.e("Error","Catalog Error: " + error.toString());
-        }
-        @Override
-        public void onCatalogReceived(JSONArray jsonArray) {
-            if(jsonArray.length() > 0){
-                for(int i = 0; i < jsonArray.length(); i++){
-                    Log.i("Info", "Catalog: " + jsonArray.opt(i).toString());
-                }
-            }else{
-                Log.i("Info", "No Catalog Information");
-            }
-        }
-    };
-
     private final CatalogDataV1.CategoryItemResponseListener categoryItemResponseListener = new CatalogDataV1.CategoryItemResponseListener(){
         @Override
         public void onError(CatalogDataV1.Error error) {
@@ -107,6 +65,13 @@ public class ShoppingFragment extends Fragment {
             if(jsonArray.length() > 0){
                 for(int i = 0; i < jsonArray.length(); i++){
                     Log.i("Info", "Category Item: " + jsonArray.opt(i).toString());
+                    JSONObject x = (JSONObject) jsonArray.opt(i);
+                    try {
+                        x.getJSONObject("title").getString("eng");
+                    } catch (Exception e) {
+                        ;
+                    }
+                    Log.i("Info", "abc: " + x.toString());
                 }
             }else{
                 Log.i("Info", "No Category Item Information");
