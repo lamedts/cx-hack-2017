@@ -5,23 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     tools:context="com.yo.cx.cxyo.FlightAttendanceFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageButton
-        android:id="@+id/RequestButton"
+    <LinearLayout
+        android:id="@+id/request_container_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/ShoppingButton"
+        <ImageButton
+            android:id="@+id/RequestButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:id="@+id/ShoppingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/request_content_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/request_container_toolbar">
+
+    </FrameLayout>
+
+
 </LinearLayout>

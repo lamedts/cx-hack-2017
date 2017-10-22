@@ -24,7 +24,6 @@ import java.util.List;
 public class RequestFragment extends Fragment {
     List<FrequentRequest> FrequentRequests = new ArrayList<FrequentRequest>();
     ListView FrequentRequestList;
-    ImageButton request_back_button;
 
     @Nullable
     @Override
@@ -32,7 +31,6 @@ public class RequestFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_request, container, false);
 
         FrequentRequestList = (ListView)rootView.findViewById(R.id.frequent_request_list);
-        request_back_button = (ImageButton)rootView.findViewById(R.id.request_back_button);
 
         FrequentRequests.add(new FrequentRequest("Blanket", getActivity().getResources().getIdentifier("blanket", "drawable", getActivity().getPackageName())));
         FrequentRequests.add(new FrequentRequest("Collect food tray", getActivity().getResources().getIdentifier("restaurant_cutlery_circular_symbol_of_a_spoon_and_a_fork_in_a_circle", "drawable", getActivity().getPackageName())));
@@ -41,14 +39,6 @@ public class RequestFragment extends Fragment {
 
         ArrayAdapter<FrequentRequest> adapter = new FrequentRequestListAdapter(getContext(),R.layout.list_frequent_request,FrequentRequests);
         FrequentRequestList.setAdapter(adapter);
-
-        request_back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.FlightAttendanceLayout, new FlightAttendanceFragment()).commit();
-            }
-        });
 
         // Inflate the layout for this fragment
         return rootView;

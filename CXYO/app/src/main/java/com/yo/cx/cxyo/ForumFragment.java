@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 public class ForumFragment extends Fragment {
 
-    ImageButton BackButton, AttractionRating, ForumPost;
+    ImageButton BackButton, AttractionRating, ForumPost1, ForumPost2;
 
     @Nullable
     @Override
@@ -26,7 +26,8 @@ public class ForumFragment extends Fragment {
 
         BackButton = (ImageButton)rootView.findViewById(R.id.forum_back_button);
         AttractionRating = (ImageButton)rootView.findViewById(R.id.AttractionsRating);
-        ForumPost = (ImageButton)rootView.findViewById(R.id.ForumPost);
+        ForumPost1 = (ImageButton)rootView.findViewById(R.id.ForumPost1);
+        ForumPost2 = (ImageButton)rootView.findViewById(R.id.ForumPost2);
 
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override

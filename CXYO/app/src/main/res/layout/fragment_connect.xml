@@ -49,7 +49,6 @@
                 android:src="@drawable/ic_user"
                 android:tint="@android:color/darker_gray"/>
 
-
         </LinearLayout>
 
         <FrameLayout

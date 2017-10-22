@@ -22,11 +22,13 @@ public class FlightAttendanceFragment extends Fragment {
         RequestButton = (ImageButton)rootView.findViewById(R.id.RequestButton);
         ShoppingButton = (ImageButton)rootView.findViewById(R.id.ShoppingButton);
 
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.request_content_frame, new RequestFragment()).commit();
+
         RequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.FlightAttendanceLayout, new RequestFragment()).commit();
+                fragmentManager.beginTransaction().replace(R.id.request_content_frame, new RequestFragment()).commit();
             }
         });
 
@@ -34,7 +36,7 @@ public class FlightAttendanceFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.FlightAttendanceLayout, new ShoppingFragment()).commit();
+                fragmentManager.beginTransaction().replace(R.id.request_content_frame, new ShoppingFragment()).commit();
             }
         });
 
