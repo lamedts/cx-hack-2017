@@ -3,6 +3,8 @@ package com.yo.cx.cxyo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,8 @@ public class FlightAttendanceFragment extends Fragment {
         RequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DrawableCompat.setTint(RequestButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                DrawableCompat.setTint(ShoppingButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.request_content_frame, new RequestFragment()).commit();
             }
@@ -35,6 +39,8 @@ public class FlightAttendanceFragment extends Fragment {
         ShoppingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DrawableCompat.setTint(ShoppingButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+                DrawableCompat.setTint(RequestButton.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorDarkGrey));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.request_content_frame, new ShoppingFragment()).commit();
             }
