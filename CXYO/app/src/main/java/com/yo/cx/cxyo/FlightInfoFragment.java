@@ -165,12 +165,21 @@ public class FlightInfoFragment extends Fragment {
         // Start the thread
         t.start();
 
-        AdvertisingV1.initService(getContext(), new IInFlightCallback() {
+        try {
+
+            AdvertisingV1.initService(getContext(), new IInFlightCallback() {
             @Override
             public void onInitServiceComplete(Object mServiceObject, String serviceName) {
                 Log.v("debug", "onInitServiceComplete(): " + serviceName);
                 advertisingV1 = (AdvertisingV1) mServiceObject;
                 AdvertisingAttributes attribute = new AdvertisingAttributes();
+
+                    //Banner
+                    attribute.setZoneWidth(728);
+                    attribute.setZoneHeight(90);
+                    advertisingV1.requestBannerByZonePath("panasonic", attribute, new AdvertisingV1.OnBannerReceiveListener() {
+                        @Override
+                        public void onBannerReceived(Banner banner) {
 
                             Log.i("Info", "onBannerReceived() " + banner.toString());
                             Picasso.with(getContext()).load(banner.getContentUrl()).into(bannerView);
